@@ -1,0 +1,78 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<div class="row" *ngIf="!isCategoryEditing && !isHomeScreenGroupEditing">
+  <div class="col-md-7">
+    <button type="button" (click)="addNewTvShow()" style="margin-left: 30px;" class="btn btn-default btn-with-icon">
+      Add New TV Show
+    </button>
+  </div>
+
+  <div class="col-md-3">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-search"></i>
+      </span>
+
+      <input id="searchInput" type="text" value="" class="form-control" placeholder="Search TV shows...">
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" (click)="clearSearchInput()" class="btn btn-xs btn-with-icon" style="margin-top: 5px;" [disabled]="!isSearching">
+      Clear
+    </button>
+  </div>
+</div>
+
+<div class="col-md-3" *ngFor="let tvShow of tvShows" style="min-width: 300px; max-height: 500px;">
+  <div class="card card-profile">
+    <img class="image-size" src="{{tvShow.picture}}" alt="...">
+
+    <div class="card-body">
+      <h4 class="card-title line-break">{{tvShow.name}}</h4>
+      <!-- <h6 class="card-category"></h6> -->
+      <!-- <p class="card-description"></p> -->
+
+      <div *ngIf="!isCategoryEditing && !isHomeScreenGroupEditing" class="card-footer text-center">
+        <a (click)="edit(tvShow)" class="btn btn-with-icon btn-outline-info btn-info" style="margin: 20px 5px 10px 5px" data-toggle="tooltip"
+          data-placement="bottom" title="Edit">
+          <i class="ti-pencil" aria-hidden="true"></i>
+        </a>
+
+        <a (click)="delete(tvShow)" class="btn btn-with-icon btn-outline-danger btn-danger" style="margin: 20px 5px 10px 5px" data-toggle="tooltip"
+          data-placement="bottom" title="Delete">
+          <i class="ti-trash" aria-hidden="true"></i>
+        </a>
+
+        <a (click)="viewSeasons(tvShow)" class="btn btn-with-icon btn-outline-success btn-success" style="margin: 20px 5px 10px 5px"
+          data-toggle="tooltip" data-placement="bottom" title="View Seasons">
+          <i class="ti-desktop" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div *ngIf="isCategoryEditing" class="card-footer text-center">
+        <br>
+
+        <button (click)="addTvShowToCategory(tvShow)" *ngIf="!tvShow.isPartOfCategory" type="button" class="btn btn-default">
+          Add
+        </button>
+
+        <button (click)="removeTvShowFromCategory(tvShow)" *ngIf="tvShow.isPartOfCategory" type="button" class="btn btn-fill btn-success">
+          Added
+        </button>
+      </div>
+
+      <div *ngIf="isHomeScreenGroupEditing" class="card-footer text-center">
+        <br>
+
+        <button (click)="addTvShowToHomeScreenGroup(tvShow)" *ngIf="!tvShow.isPartOfHomeScreenGroup" type="button" class="btn btn-default">
+          Add
+        </button>
+
+        <button (click)="removeTvShowFromHomeScreenGroup(tvShow)" *ngIf="tvShow.isPartOfHomeScreenGroup" type="button" class="btn btn-fill btn-success">
+          Added
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

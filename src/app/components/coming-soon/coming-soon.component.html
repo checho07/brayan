@@ -1,0 +1,31 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<div class="row">
+  <div class="col-md-7">
+    <button type="button" (click)="addNewComingSoon()" style="margin-left: 30px;" class="btn btn-default btn-with-icon">
+      Add New
+    </button>
+  </div>
+</div>
+
+<div class="col-md-3" *ngFor="let comingSoon of comingSoonList" style="min-width: 300px; max-height: 500px;">
+  <div class="card card-profile">
+    <img class="image-size" src="{{comingSoon.picture}}" alt="...">
+
+    <div class="card-body">
+      <h4 class="card-title line-break">{{comingSoon.name}}</h4>
+
+      <div class="card-footer text-center">
+        <a (click)="edit(comingSoon)" class="btn btn-with-icon btn-outline-info btn-info" style="margin: 20px 5px 10px 5px" data-toggle="tooltip"
+          data-placement="bottom" title="Edit">
+          <i class="ti-pencil" aria-hidden="true"></i>
+        </a>
+
+        <a (click)="delete(comingSoon)" class="btn btn-with-icon btn-outline-danger btn-danger" style="margin: 20px 5px 10px 5px" data-toggle="tooltip"
+          data-placement="bottom" title="Delete">
+          <i class="ti-trash" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

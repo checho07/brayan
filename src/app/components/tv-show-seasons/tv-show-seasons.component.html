@@ -1,0 +1,41 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<div class="row">
+  <h2 style="margin-top: -10px;">TV Show Seasons</h2>
+</div>
+
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-md-8">
+      <button type="button" (click)="addNewTvShowSeason()" style="margin-left: 30px;" class="btn btn-default btn-with-icon">
+        Add New Season
+      </button>
+    </div>
+  </div>
+
+  <div class="col-md-3" *ngFor="let season of tvShowSeasons" style="min-width: 300px;">
+    <div class="card card-profile">
+      <div class="card-body">
+        <h4 class="card-title">{{season.name}}</h4>
+        <h6 class="card-category">{{season.tvShowName}}</h6>
+
+        <div class="card-footer text-center">
+          <a (click)="edit(season)" class="btn btn-with-icon btn-outline-info btn-info" style="margin: 20px 5px 10px 5px" data-toggle="tooltip"
+            data-placement="bottom" title="Edit">
+            <i class="ti-pencil" aria-hidden="true"></i>
+          </a>
+
+          <a (click)="delete(season)" class="btn btn-with-icon btn-outline-danger btn-danger" style="margin: 20px 5px 10px 5px" data-toggle="tooltip"
+            data-placement="bottom" title="Delete">
+            <i class="ti-trash" aria-hidden="true"></i>
+          </a>
+
+          <a (click)="viewEpisodes(season)" class="btn btn-with-icon btn-outline-success btn-success" style="margin: 20px 5px 10px 5px"
+            data-toggle="tooltip" data-placement="bottom" title="View Episodes">
+            <i class="ti-desktop" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

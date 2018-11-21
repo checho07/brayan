@@ -1,0 +1,34 @@
+<ngx-spinner bdColor="#0e9b06" size="medium" color="#0e9b06" type="timer"></ngx-spinner>
+
+<div class="row">
+  <div class="col-md-7">
+    <button type="button" (click)="addHomeScreenGroup()" style="margin-left: 30px;" class="btn btn-default btn-with-icon">
+      Add Home Screen Group
+    </button>
+  </div>
+</div>
+
+<div class="col-md-3" *ngFor="let group of homeScreenGroups" style="min-width: 300px; max-height: 500px;">
+  <div class="card card-profile" style="margin-top: 50px;">
+    <div class="card-body">
+      <h4 class="card-title line-break">{{group.name}}</h4>
+
+      <div class="card-footer text-center">
+        <a (click)="edit(group)" class="btn btn-with-icon btn-outline-info btn-info" style="margin: 20px 5px 10px 5px" data-toggle="tooltip"
+          data-placement="bottom" title="Edit">
+          <i class="ti-pencil" aria-hidden="true"></i>
+        </a>
+
+        <a (click)="delete(group)" class="btn btn-with-icon btn-outline-danger btn-danger" style="margin: 20px 5px 10px 5px"
+          data-toggle="tooltip" data-placement="bottom" title="Delete">
+          <i class="ti-trash" aria-hidden="true"></i>
+        </a>
+
+        <a (click)="openHomeScreenGroup(group)" class="btn btn-with-icon btn-outline-success btn-success" style="margin: 20px 5px 10px 5px"
+          data-toggle="tooltip" data-placement="bottom" title="Episodes/Movies">
+          <i class="ti-desktop" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

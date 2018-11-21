@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import "src/assets/css/animate.min.css";
+@import "src/assets/css/bootstrap.min.css"; */
+
+@import "src/assets/css/demo.css";
+@import "src/assets/css/paper-dashboard.css";
+@import "src/assets/css/themify-icons.css";
+
+.my-panel .mat-dialog-container {
+    background-color: white;
+    border-radius: 20px;
+}

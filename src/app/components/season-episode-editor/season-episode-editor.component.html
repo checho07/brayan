@@ -1,0 +1,87 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<mat-dialog-content>
+  <div class="row">
+    <button type="button" style="float: right;" (click)="closeEditor()" class="btn btn-default btn-icon">
+      <i class="ti-close"></i>
+    </button>
+  </div>
+
+  <div class="row">
+    <h2 *ngIf="!isEditMode" style="margin-top: -20px;">Add New Episode</h2>
+    <h2 *ngIf="isEditMode" style="margin-top: -20px;">Edit Existing Episode</h2>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="form-group">
+        <label for="episodeName">Episode Name</label>
+        <input type="text" class="form-control" id="episodeName" [(ngModel)]="episodeName" placeholder="Episode name">
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateEpisodeName()" class="btn btn-primary">Update</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="form-group">
+        <label for="episodeDescription">Episode Description</label>
+        <textarea rows="4" cols="50" class="form-control" id="episodeDescription" [(ngModel)]="episodeDescription" placeholder="Episode description"></textarea>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateEpisodeDescription()" class="btn btn-primary">Update</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="form-group">
+        <label for="episodePicture">Episode Picture</label>
+        <input type="file" class="form-control" id="episodePicture">
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateEpisodePicture()" class="btn btn-primary">Update</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <strong style="color: #e50914; font-size: 13px">NB: Recommended picture size is 240px by 140px (width by height)</strong>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="form-group">
+        <label for="episode">Episode to upload:</label>
+        <input type="file" class="form-control" id="episode">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10">
+      <div *ngIf="showProgress" aria-valuemin="0" role="progressbar" class="progress-bar progress-bar-animated progress-bar-striped"
+        attr.aria-valuenow="{{progress}}" aria-valuemax="100" [ngStyle]="{width:progress/100 | percent:'1.0-1'}" style=" background-color: #e50914">
+        <strong style="color: white">{{progress}}%</strong>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <button type="submit" style="float: right;" *ngIf="!isEditMode" (click)="addNewEpisode()" class="btn btn-primary">Add Episode</button>
+  </div>
+</mat-dialog-content>

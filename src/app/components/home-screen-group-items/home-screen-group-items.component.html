@@ -1,0 +1,16 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<mat-dialog-content>
+  <mat-tab-group>
+    <mat-tab label="Movies">
+      <br>
+      <app-movies [isHomeScreenGroupEditing]="isHomeScreenGroupEditing" [homeScreenGroup]="homeScreenGroup" [homeScreenGroupMovies]="homeScreenGroupMovies">
+      </app-movies>
+    </mat-tab>
+
+    <mat-tab label="TV Shows">
+      <br>
+      <app-tv-shows [isHomeScreenGroupEditing]="isHomeScreenGroupEditing" [homeScreenGroup]="homeScreenGroup" [homeScreenGroupTvShows]="homeScreenGroupTvShows"></app-tv-shows>
+    </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>

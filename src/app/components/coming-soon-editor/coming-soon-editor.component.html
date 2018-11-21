@@ -1,0 +1,95 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<div class="row">
+  <button type="button" style="float: right;" (click)="closeEditor()" class="btn btn-default btn-icon">
+    <i class="ti-close"></i>
+  </button>
+</div>
+
+<div class="row">
+  <h2 *ngIf="!isEditMode" style="margin-top: -20px;">Add New</h2>
+  <h2 *ngIf="isEditMode" style="margin-top: -20px;">Edit Existing</h2>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="comingSoonName">Name</label>
+      <input type="text" class="form-control" id="comingSoonName" [(ngModel)]="comingSoonName" placeholder="Name">
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateComingSoonName()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="comingSoonPicture">Picture</label>
+      <input type="file" class="form-control" id="comingSoonPicture">
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateComingSoonPicture()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <strong style="color: #e50914; font-size: 13px">NB: Recommended picture size is 680px by 400px (width by height)</strong>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="comingSoonDescription">Description</label>
+      <textarea rows="4" cols="50" class="form-control" id="comingSoonDescription" [(ngModel)]="comingSoonDescription" placeholder="Description"></textarea>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateComingSoonDescription()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="comingSoonReleaseDate">Release Date</label>
+      <input type="text" class="form-control" id="comingSoonReleaseDate" [(ngModel)]="comingSoonReleaseDate" placeholder="Release Date">
+
+      <!-- <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateComingSoonReleaseDate()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div *ngIf="showProgress" aria-valuemin="0" role="progressbar" class="progress-bar progress-bar-animated progress-bar-striped"
+      attr.aria-valuenow="{{progress}}" aria-valuemax="100" [ngStyle]="{width:progress/100 | percent:'1.0-1'}" style=" background-color: #e50914">
+      <strong style="color: white">{{progress}}%</strong>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <button type="submit" style="float: right;" *ngIf="!isEditMode" (click)="addNewComingSoon()" class="btn btn-primary">Add</button>
+</div>

@@ -1,0 +1,15 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<mat-dialog-content>
+    <mat-tab-group>
+        <mat-tab label="Movies">
+            <br>
+            <app-movies [isCategoryEditing]="isCategoryEditing" [category]="category" [categoryMovies]="categoryMovies"></app-movies>
+        </mat-tab>
+
+        <mat-tab label="TV Shows">
+            <br>
+            <app-tv-shows [isCategoryEditing]="isCategoryEditing" [category]="category" [categoryTvShows]="categoryTvShows"></app-tv-shows>
+        </mat-tab>
+    </mat-tab-group>
+</mat-dialog-content>

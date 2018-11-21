@@ -1,0 +1,33 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<div class="row">
+  <button type="button" style="float: right;" (click)="closeEditor()" class="btn btn-default btn-icon">
+    <i class="ti-close"></i>
+  </button>
+</div>
+
+<div class="row">
+  <h2 *ngIf="!isEditMode" style="margin-top: -20px;">Add New Season</h2>
+  <h2 *ngIf="isEditMode" style="margin-top: -20px;">Edit Existing Season</h2>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="seasonName">Season Name</label>
+      <input type="text" class="form-control" id="seasonName" [(ngModel)]="seasonName" placeholder="Season name">
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateSeasonName()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <button type="submit" style="float: right;" *ngIf="!isEditMode" (click)="addNewSeason()" class="btn btn-primary">Add Season</button>
+</div>

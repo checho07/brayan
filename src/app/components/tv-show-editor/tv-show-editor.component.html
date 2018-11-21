@@ -1,0 +1,127 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<div class="row">
+  <button type="button" style="float: right;" (click)="closeEditor()" class="btn btn-default btn-icon">
+    <i class="ti-close"></i>
+  </button>
+</div>
+
+<div class="row">
+  <h2 *ngIf="!isEditMode" style="margin-top: -20px;">Add New TV Show</h2>
+  <h2 *ngIf="isEditMode" style="margin-top: -20px;">Edit Existing TV Show</h2>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="tvShowName">Name</label>
+      <input type="text" class="form-control" id="tvShowName" [(ngModel)]="tvShowName" placeholder="TV Show name">
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateTvShowName()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="tvShowPicture">Home Screen Picture</label>
+      <input type="file" class="form-control" id="tvShowPicture">
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateTvShowPicture()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <strong style="color: #e50914; font-size: 13px">NB: Recommended picture size is 200px by 280px (width by height)</strong>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-sm-10">
+      <div class="form-group">
+        <label for="detailsPicture">Details Picture</label>
+        <input type="file" class="form-control" id="detailsPicture">
+      </div>
+    </div>
+  
+    <div class="col-sm-2">
+      <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateDetailsPicture()" class="btn btn-primary">Update</button>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <strong style="color: #e50914; font-size: 13px">NB: Recommended picture size is 800px by 450px (width by height)</strong>
+    </div>
+  </div>
+  
+  <br>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="tvShowYear">Release Year</label>
+      <select class="form-control" [(ngModel)]="tvShowYear">
+        <option *ngFor="let year of years" id="tvShowYear" [ngValue]="year">{{year}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateTvShowReleaseYear()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="tvShowRating">Rating</label>
+      <select class="form-control" [(ngModel)]="tvShowRating">
+        <option *ngFor="let rating of ratings" id="tvShowRating" [ngValue]="rating">{{rating}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateTvShowRating()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-group">
+      <label for="tvShowDescription">Description</label>
+      <textarea rows="4" cols="50" class="form-control" id="tvShowDescription" [(ngModel)]="tvShowDescription" placeholder="TV Show description"></textarea>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <button *ngIf="isEditMode" style="margin-top: 25px;" (click)="updateTvShowDescription()" class="btn btn-primary">Update</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-10">
+    <div *ngIf="showProgress" aria-valuemin="0" role="progressbar" class="progress-bar progress-bar-animated progress-bar-striped"
+      attr.aria-valuenow="{{progress}}" aria-valuemax="100" [ngStyle]="{width:progress/100 | percent:'1.0-1'}" style=" background-color: #e50914">
+      <strong style="color: white">{{progress}}%</strong>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <button type="submit" style="float: right;" *ngIf="!isEditMode" (click)="addNewTvShow()" class="btn btn-primary">Add TV Show</button>
+</div>

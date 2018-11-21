@@ -1,0 +1,16 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.0)" size="medium" color="#e50914" type="timer"></ngx-spinner>
+
+<div class="col-md-3" *ngFor="let category of categories" style="min-width: 300px; min-height: 150px;">
+  <div class="card card-profile">
+    <div class="card-body">
+      <h4 class="card-title">{{category.name}}</h4>
+
+      <div class="card-footer text-center">
+        <a (click)="openCategory(category)" class="btn btn-with-icon btn-outline-success btn-success" style="margin: 20px 5px 10px 5px"
+          data-toggle="tooltip" data-placement="bottom" title="Episodes/Movies">
+          <i class="ti-desktop" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
