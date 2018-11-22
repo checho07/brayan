@@ -7,7 +7,7 @@ import { TvShow } from "../../../models/TvShow";
 
 @Injectable({
   providedIn: "root"
-})
+}) 
 export class CategoriesService {
   constructor() {}
 
